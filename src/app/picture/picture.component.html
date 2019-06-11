@@ -1,0 +1,6 @@
+<div>
+  <img *ngIf="pictureUrl | async" src="{{pictureUrl | async}}" alt="image" class="picture"/>
+  <div *ngIf="loading | async">
+    Cargando...
+  </div>
+</div>
