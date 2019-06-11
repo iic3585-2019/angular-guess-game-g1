@@ -1,3 +1,4 @@
-<div *ngFor="let word of words | async">
-  {{word}}
+<div class="container">
+    <app-word *ngFor="let word of words | async" [word]="word">
+    </app-word>      
 </div>
