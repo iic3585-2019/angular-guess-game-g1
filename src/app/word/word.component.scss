@@ -1,17 +1,14 @@
 .container {
-    background-color: #00ff99;
+    background-color: #3291c9;
     padding: 0.5em 1em;
     margin: 0.5em;
     text-align: center;
     border-radius: 0.5em;
     cursor: pointer;
-    &:hover {
-        background-color: #00e68a;
-    }
     &.is-correct {
-        background-color: #33ccff;
+        background-color: #28a745;
     }
     &.is-incorrect {
-        background-color: #ff3300;
+        background-color: #ee6666;
     }
 }
