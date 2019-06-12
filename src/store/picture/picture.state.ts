@@ -45,6 +45,7 @@ export class PictureState {
     const state = ctx.getState();
     ctx.setState({
       ...state,
+      pictureUrl: '',
       loading: true
     });
   }
