@@ -31,7 +31,7 @@ export class WordComponent implements OnInit {
     const classes = {
       'is-correct': this.word === this.guess && this.correct,
       'is-incorrect': this.word === this.guess && !this.correct
-    }
+    };
     return classes;
   }
 
