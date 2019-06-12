@@ -67,7 +67,7 @@ export class WordsState {
       guess
     });
     if (correct) { ctx.dispatch(new Win()); } else {ctx.dispatch(new Lost()); }
-    sleep(2000);
+    await sleep(2000);
     ctx.dispatch(new GenerateWords());
   }
 }
