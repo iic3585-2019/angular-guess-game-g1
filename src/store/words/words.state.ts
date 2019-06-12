@@ -60,6 +60,6 @@ export class WordsState {
       ...state,
       correct,
       guess
-    })
+    });
   }
 }
