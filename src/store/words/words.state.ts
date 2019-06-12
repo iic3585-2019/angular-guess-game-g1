@@ -34,6 +34,11 @@ export class WordsState {
   }
 
   @Selector()
+  static getWord(state: WordsModel) {
+    return state.word;
+  }
+
+  @Selector()
   static getGuess(state: WordsModel) {
     return state.guess;
   }
@@ -51,7 +56,9 @@ export class WordsState {
     ctx.setState({
       ...state,
       words,
-      word
+      word,
+      guess: '',
+      correct: false
     });
     ctx.dispatch(new LoadPicture(word));
   }

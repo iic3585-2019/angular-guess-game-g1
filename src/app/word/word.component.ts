@@ -11,15 +11,18 @@ import {WordsState} from '../../store/words/words.state';
 })
 export class WordComponent implements OnInit {
   guess: string;
+  correctWord: string;
   correct: boolean;
   @Input() word: string;
   @Select(WordsState.getGuess) guessO: Observable<string>;
+  @Select(WordsState.getWord) wordO: Observable<string>;
   @Select(WordsState.getCorrect) correctO: Observable<boolean>;
 
   constructor(private store: Store) { }
 
   ngOnInit() {
     this.guessO.subscribe(newGuess => this.guess = newGuess);
+    this.wordO.subscribe(newWord => this.correctWord = newWord);
     this.correctO.subscribe(newCorrect => this.correct = newCorrect);
   }
 
@@ -29,7 +32,7 @@ export class WordComponent implements OnInit {
 
   setClasses() {
     const classes = {
-      'is-correct': this.word === this.guess && this.correct,
+      'is-correct': this.guess !== '' && this.word === this.correctWord,
       'is-incorrect': this.word === this.guess && !this.correct
     };
     return classes;
