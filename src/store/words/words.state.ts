@@ -1,9 +1,14 @@
 import {Action, Selector, State, StateContext} from '@ngxs/store';
 import {GenerateWords, TakeGuess} from './words.actions';
+import {Win, Lost} from '../score/score.actions';
 import randomWords from 'random-words';
 import {LoadPicture} from '../picture/picture.actions';
 
 const TOTAL_WORDS = 5;
+
+function sleep(time: number) {
+  return new Promise((resolve) => setTimeout(resolve, time));
+}
 
 export interface WordsModel {
   words: string[];
@@ -52,7 +57,7 @@ export class WordsState {
   }
 
   @Action(TakeGuess)
-  takeGuess(ctx: StateContext<WordsModel>, { payload }: any) {
+  async takeGuess(ctx: StateContext<WordsModel>, { payload }: any) {
     const state = ctx.getState();
     const guess = payload.guess;
     const correct = state.word === guess;
@@ -61,5 +66,8 @@ export class WordsState {
       correct,
       guess
     });
+    if (correct) { ctx.dispatch(new Win()); } else {ctx.dispatch(new Lost()); }
+    sleep(2000);
+    ctx.dispatch(new GenerateWords());
   }
 }
