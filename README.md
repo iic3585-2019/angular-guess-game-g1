@@ -26,26 +26,34 @@ Este componente actúa como contenedor para las palabras que el usuario puede ad
 
 Este componente se encarga tanto de desplegar cada palabra, como a despachar las acciones relacionadas a esta. En otras palabras, se dedica a despachar la acción correspondiente a resolver cada apuesta. Además, se encarga de mostrar si la palabra es la correcta o si no lo es.
 
-## Development server
+### Store
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+Como es mencionado más arriba, la `store` de NGXS es dividida en tres módulos pertinentes según las distintas responsabilidades. Estos se encuentran en los directorios que están ubicados dentro del directorio `src/store`.
 
-## Code scaffolding
+#### Picture
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+Este módulo se encarga de guardar la información relacionada a la imagen, como la `URL` donde está ubicada. Además, se encarga de implementar las acciones correspondientes a cargar la imagen.
 
-## Build
+#### Score
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+Este módulo se encarga de guardar la información relacionada al puntaje, como la cantidad de aciertos del jugador y de los intentos totales. Además, se encarga de implementar las acciones correspondientes a actualizar el puntaje.
 
-## Running unit tests
+#### Words
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+Este módulo se encarga de guardar la información relacionada a las palabras, como las distintas palabras y la palabra correcta. Además, se encarga de implementar las acciones correspondientes a escoger la palabra correcta y adivinar el título.
 
-## Running end-to-end tests
+## Corriendo la aplicación
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+Para correr la aplicación, es necesario haber instalada la línea de comandos de `Angular`. Para esto, una opción es ejecutar el comando
 
-## Further help
+```
+npm install -g @angular/cli
+```
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+Luego, para correr la aplicación basta con correr
+
+```
+ng serve
+```
+
+y se obtendrá un servidor de desarrollo con *hot-reload*. La aplicación quedará corriendo en `http://localhost:4200/`.
